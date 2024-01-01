@@ -505,6 +505,7 @@ internal extension SideMenuNavigationController {
         dismiss(animated: flag, completion: completion)
     }
     
+    ///Keep the function here in case of unexpected behaivours
     func dismissMenuWithTap() {
         guard !isHidden else { return }
         transitionController?.interactive = true
@@ -646,7 +647,7 @@ private extension SideMenuNavigationController {
     @objc func handleDismissMenuTap(_ tap: UITapGestureRecognizer) {
         let hitTest = view.window?.hitTest(tap.location(in: view.superview), with: nil)
         guard hitTest == view.superview else { return }
-        dismissMenuWithTap()
+       dismissMenu()
     }
 
     @objc func handleDismissMenuPan(_ gesture: UIPanGestureRecognizer) {
